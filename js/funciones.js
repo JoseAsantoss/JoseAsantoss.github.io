@@ -42,7 +42,7 @@ window.onload = () => {
         if(nVenta > 768) {
             enlaces.classList.add('activado')
             enlaces.addEventListener('click', () => {
-                enlaces.classList.add('activado')
+                enlaces.classList.add('activado');
             })
         }
 
