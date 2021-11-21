@@ -54,6 +54,7 @@ window.onload = () => {
             })
         }else {
             enlaces.classList.add('activado')
+            enlaces.removeEventListener('activado');
         }
 
     })
