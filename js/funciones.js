@@ -5,7 +5,6 @@ window.onload = () => {
     const ham = document.querySelector('.ham');
     const enlaces = document.querySelector('.enlaceMenu');
     const barras = document.querySelectorAll('.ham span');
-    let control = false;
 
     /**************************************************/
     /**************************************************/
@@ -14,62 +13,43 @@ window.onload = () => {
     .activado para que se vea el menu en lista o se quede
     oculto y se muestre el button con la clase .ham */
     if(navegador > 768) {
-        enlaces.classList.add('activado', true);
-        control = true;
-    } else {
-        ham.addEventListener('click', () => {
-            enlaces.classList.toggle('activado');
-            barras.forEach(child => {
-                child.classList.toggle('animado');
-            })
-           mostrar = true;
-        })
-
-        enlaces.addEventListener('click', () => {
-            enlaces.classList.toggle('activado');
-            barras.forEach(child => {
-                child.classList.toggle('animado'); 
-            })  
-        })
-
-
+        enlaces.classList.add('activado');
     }
-
-    control = false;
 
     window.addEventListener('resize', () => {
         let nuevoTam = window.innerWidth;
 
-        if(control && nuevoTam < 769 ) {
-            enlaces.classList.toggle('activado', false);
-            control = true
-
-            enlaces.addEventListener('click', () => {
-                enlaces.classList.toggle('activado');
-                barras.forEach(child => {
-                    child.classList.toggle('animado'); 
-                })  
-            })
+        if(nuevoTam < 769 ) {
+            enlaces.classList.remove('activado')
+            navegador = nuevoTam;
 
         }else {
-
-            if(nuevoTam > 768) {
-                enlaces.classList.add('activado', true);
-                control = false;
-            }else {
-                enlaces.addEventListener('click', () => {
-                    enlaces.classList.toggle('activado');
-                    barras.forEach(child => {
-                        child.classList.toggle('animado'); 
-                    })  
-                })
-            }
+            enlaces.classList.add('activado')
+            navegador = nuevoTam;
         }
     })
     /**************************************************/
     /**************************************************/
     /**************************************************/
     /**************************************************/
+
+    ham.addEventListener('click', () => {
+        enlaces.classList.add('activado');
+        barras.forEach(child => {
+            child.classList.toggle('animado');
+        })
+    })
+
+    if(navegador < 769) {
+        enlaces.addEventListener('click', () => {
+            enlaces.classList.remove('activado');
+            barras.forEach(child => {
+                child.classList.toggle('animado');
+                
+            })
+        })
+    }
+    
    
        
 }
