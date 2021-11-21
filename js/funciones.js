@@ -37,9 +37,11 @@ window.onload = () => {
                 })
                 
             })
-        }else {
+        }
+
+        if(nVenta > 768) {
+            enlaces.removeEventListener('click', false);
             enlaces.classList.add('activado')
-            console.log('estoy aquí')
         }
 
     })
