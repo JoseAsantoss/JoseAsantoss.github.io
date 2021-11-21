@@ -36,23 +36,23 @@ window.onload = () => {
         console.log(`Ventana es ${ventana} y nVentana es ${nVenta}`)
 
         if(nVenta < 769) {
-            enlaces.classList.toggle('activado')
+            enlaces.classList.remove('activado')
             ham.addEventListener('click', () => {
-                enlaces.classList.toggle('activado');
+                enlaces.classList.add('activado');
                 barras.forEach(child => {
                     child.classList.toggle('animado');
                 })
             })
         
             enlaces.addEventListener('click', () => {
-                enlaces.classList.toggle('activado');
+                enlaces.classList.remove('activado');
                 barras.forEach(child => {
                     child.classList.toggle('animado');
                     
                 })
             })
         }else {
-            enlaces.classList.toggle('activado', true)
+            enlaces.classList.add('activado')
         }
 
     })
