@@ -51,10 +51,10 @@ window.onload = () => {
                     child.classList.toggle('animado');
                     
                 })
+                console.log('vuelvo a entrar aquí')
             })
         }else {
             enlaces.classList.add('activado')
-            enlaces.removeEventListener('activado');
         }
 
     })
