@@ -12,24 +12,8 @@ window.onload = () => {
     usuario y en función de ello le voy a activar la clase
     .activado para que se vea el menu en lista o se quede
     oculto y se muestre el button con la clase .ham */
-    if(ventana < 769) {
-        enlaces.classList.remove('activado');
-        ham.addEventListener('click', () => {
-            enlaces.classList.add('activado');
-            barras.forEach(child => {
-                child.classList.toggle('animado');
-            })
-        })
-    
-        enlaces.addEventListener('click', () => {
-            enlaces.classList.remove('activado');
-            barras.forEach(child => {
-                child.classList.toggle('animado');
-                
-            })
-        })
-    }else {
-        enlaces.classList.add('activado')
+    if(ventana > 768) {
+       enlaces.classList.add('activado')
     }
 
     window.addEventListener('resize', () => {
