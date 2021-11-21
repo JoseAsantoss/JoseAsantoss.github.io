@@ -35,9 +35,11 @@ window.onload = () => {
 
     }
 
+    control = false;
+
     window.addEventListener('resize', () => {
         let nuevoTam = window.innerWidth;
-        
+
         if(control && nuevoTam < 769 ) {
             enlaces.classList.toggle('activado', false);
             control = true
