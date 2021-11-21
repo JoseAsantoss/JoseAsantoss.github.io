@@ -1,0 +1,858 @@
+/* EStilos generales  que afectan a todo el documento*/
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    line-height: 1.6;
+    font-family: 'Monserrat', sans-serif;
+    color: #04082c;
+    background-color: #04082c10;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Poppins', sans-serif;
+}
+
+a,
+a:visited,
+a:link,
+a:active {
+    text-decoration: none;
+    color: #f7f7f7;
+}
+
+/**********************************************/
+/* Partimos de un tamaño de pantalla de 320px */
+/**********************************************/
+/* Estilos contendor principal*/
+.container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 3fr 2fr;
+}
+
+/* Estilos comunes del footer y del nav */
+nav,
+.footer {
+    background-color: #04082c;
+    grid-column: 1/4;
+}
+
+nav {
+    grid-row: 1/2;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: auto;
+    min-height: 8vh;
+    position: fixed;
+    z-index: 9999;
+    place-items: center stretch;
+    padding-top: 5px;
+    width: 100%;
+} 
+.nav a {
+    grid-column: 1/2;
+}
+.logo {
+    width: 75%;
+    max-width: 61px;
+    height: 75%;
+}
+
+.nombre {
+    grid-column: 2/3;
+    text-align: center;
+    color: #f7f7f7;
+}
+
+.nombre h2,
+.nombre h3 {
+    padding: 0;
+    margin: 0;
+}
+
+.nombre h2 {
+    font-size: 1.7em;
+}
+
+.nombre h3 {
+    font-size: 1.5em;
+}
+
+
+
+.ham {
+    display: block;
+    cursor: pointer;
+    border: none;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    margin-right: 10px;
+}
+
+.ham span{
+    display: block;
+    background-color: #f7f7f7;
+    height: 3px;
+    width: 32px;
+    margin: 12px auto;
+    border-radius: 2px;
+}
+
+.enlaceMenu {
+    grid-column: 1/4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 92vh;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: none;
+    background-color: #04082c;
+    opacity: 0;
+}
+
+.enlaceMenu li {
+    list-style-type: none;
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+}
+
+.enlaceMenu li a {
+    text-decoration: none;
+    color: #f7f7f7;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.enlaceMenu li:hover {
+    background-color: #404dc5;
+}
+
+@keyframes muestraMenu {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+.enlaceMenu.activado{
+    display: flex;
+    animation: muestraMenu 350ms ease-in-out both;
+}
+
+.br1.animado {
+    transform: rotate(-45deg) translate(-10px, 8px);
+}
+
+.br2.animado {
+    opacity: 0;
+}
+
+.br3.animado{
+    transform: rotate(45deg) translate(-10px, -8px);
+}
+
+/* Ocultamos el header mientras que no estemos en 
+las resoluciones de portail, pc o tv */
+.header {
+    display: none;
+}
+
+/* Estilos del main */
+.content {
+    grid-column: 1/4;
+    grid-row: 2/3;
+    margin-top: 6em;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 45% 35% 20%;
+    height: max-content;
+}
+
+/* Comunes a todas las secciones del main*/
+.formacion,
+.portfolio,
+.idiomas {
+    grid-column: 1/-1;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.formacion h2,
+.portfolio h2,
+.idiomas h2 {
+
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 0.8em;
+}
+
+.formacion {
+    grid-row: 1/2;
+    align-self: flex-start;
+}
+
+.portfolio {
+    grid-row: 2/3;
+    align-self: flex-start;
+}
+
+.idiomas {
+    grid-row: 3/4;
+}
+
+/* Css común para las tarjetas */
+.card {
+    border: 1px solid #04082c;
+    border-radius: 25px;
+    box-shadow: 5px 5px 5px 3px #04082c91 ;
+    background-color: #04082c10;
+    margin-bottom: 4em;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+    height: 45vh;
+    font-size: 1.1em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-items: space-evenly;
+    align-items: center;
+}
+
+.card h2,
+.card h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.card h2, .card h3,
+.card a {
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.card h2 {
+    font-size: 1.4em;
+    text-align: left;
+    margin-top: 2%;
+    width: 100%;
+
+}
+
+.card h3 {
+    width: 100%;
+    margin-bottom: 3%;
+    font-size: 1.3em;
+}
+
+.card p {
+    font-size: 1.5em;
+    margin: 0 3%;
+    margin-bottom: 5%;
+}
+
+.card > a {
+    color: #04082c;
+    padding: 0.5em;
+    border: 2px solid #04082c;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px 1px #04082c;
+    margin-bottom: 5px;
+}
+
+.card > a:hover{
+    color: #f7f7f7;
+    background-color: #04082c;
+}
+
+/* Modificaciones de estilos para tarjetas de portfolio */
+.portfolio .card {
+    height: 54vh
+}
+
+.portfolio .card:nth-child(3) {
+    height: 56vh;
+}
+
+/* Modificaciones de estilos para tarjetas de idiomas */
+.idiomas .card {
+    height: 26vh;
+    width: 80%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.idiomas .card div{
+    text-align: center;
+    width: 100%;
+    margin-top: 3%;
+}
+
+.idiomas .card div img {
+    width: 30%;
+    max-width: 100px;
+    height: auto;
+    border: 1px solid #04082c;
+    border-radius: 50%;
+}
+
+.idiomas .card div p{
+    font-size: 0.6em;
+}
+
+.idiomas .card div p a {
+    color: #04082c;
+    cursor: pointer;
+}
+
+.idiomas .card p {
+    font-weight: 900;
+    font-size: 1.9em;
+    margin:2px 0;
+    padding: 0;
+}
+
+/* Estilos para el footer */
+.footer {
+   grid-row: 3/4;
+   display: grid;
+   grid-template-columns: 50% 50%;
+   grid-template-rows: 75% 25%;
+   height: 40vh;
+}
+
+.left,
+.right {
+    grid-row: 1/2;
+}
+
+.center {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+    color: #f7f7f7;
+    font-size: 0.99em;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.left,
+.right {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.left,
+.right {
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.right div {
+    margin-bottom: 10px;
+}
+
+.left a {
+    width: 10em;
+    text-align: center;
+    border: 1px solid #f7f7f7;
+    border-radius: 10px;
+    padding: 1.5em;
+}
+
+.right,
+.left a{
+    font-size: 1.2em;
+}
+
+/* DISPOSITIVOS MOVILES */
+@media (max-width: 319px) {
+    .container, nav,
+    .footer {
+        width: 320px;
+    }
+
+    .enlaceMenu,
+    .enlaceMenu.enlaceMenu.activado {
+        width: 320px;
+    }
+}
+
+/* ********************** */
+/* ********************** */
+/* ********************** */
+
+@media (min-width: 544px) {
+    .formacion {
+        margin-top: 1.25em;
+    }
+
+    .formacion h2,
+    .portfolio h2 {
+        margin-bottom: 0.75em;
+    }
+
+    .formacion .card {
+        height: 38vh;
+        align-content: flex-start;
+    }
+
+    .formacion .card:nth-child(2) {
+        height: 42vh;
+    }
+
+    .portfolio .card {
+        height: 42vh;
+        align-content: flex-start;
+    }
+
+    .portfolio .card h2 {
+        font-size: 1.8em;
+        margin-bottom: .5em;
+    }
+
+    .portfolio .card:nth-child(3) {
+        height: 46vh;
+    }
+
+    .idiomas {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .idiomas h2 {
+        text-align: center;
+        width: 100%;
+    }
+
+    .idiomas .card {
+        width: 40%
+    }
+
+    .right,
+    .left a {
+        font-size: 1.4em;
+    }
+
+    .center {
+        font-size: 1.2em;
+    }
+}
+
+/* ********************** */
+/* ********************** */
+/* ********************** */
+
+@media (min-width: 656px) {
+
+    .formacion .card:nth-child(3) {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 96vw;
+    }
+
+    .formacion .card:nth-child(4) {
+        height: 42vh;
+    }
+
+    .portfolio .card {
+        height: 40vh !important;
+    }
+
+    .idiomas {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .idiomas h2 {
+        text-align: center;
+        width: 100%;
+    }
+
+    .idiomas .card {
+        width: 40%;
+    height: 32vh;
+    }
+
+    .right,
+    .left a {
+        font-size: 1.4em;
+    }
+
+    .center {
+        font-size: 1.2em;
+    }
+}
+
+/* ********************** */
+/* ********************** */
+/* ********************** */
+
+/* Pantallas a partir de 769px */
+@media (min-width: 769px){
+    .container {
+        grid-template-rows: 8vh 2fr 3fr 1fr;
+    }
+
+    .ham {
+        display: none;
+    }
+
+    nav {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 10% 30% 60%;
+    }
+
+    .logo {
+        grid-column: 1/2;
+        width: 6em;
+        height: 6em;
+        margin-left: 5%;
+    }
+
+    .nombre {
+        grid-column: 2/3;
+        font-size: 1.25em;
+    }
+
+    .enlaceMenu {
+        grid-column: 3/4;
+        display: flex;
+        flex-direction: row;
+        height: 8vh;
+    }
+
+    .enlaceMenu li {
+        width: 25%;
+    }
+
+    .enlaceMenu li a {
+        font-size: 2em;
+    }
+
+    /* Estilos para el Header, sólo visible en tamaños
+    tablet portrait y pantallas grandes */
+    .header {
+        display: flex; /* Mostramos el header*/
+    }
+
+    .header {
+        grid-row: 2/3;
+        grid-column: 1/-1;
+        background-image: url(../images/jose2.png);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: right bottom;
+        background-size: 130% 100%;
+        height: 96vh;
+    }
+
+    .cita {
+        margin: 0;
+        padding: 0;
+        width: 58%;
+        height: 100%;
+        font-style: italic;
+        font-size: 2em;
+        color: #04082c;
+        background-color: transparent;
+        padding-top: 23%;
+        padding-left: 3%;
+    }
+
+
+    .content {
+        margin: 0;
+        grid-row: 3/4;
+        grid-column: 1/-1;
+        display: grid;
+        grid-template-rows: repeat(3, 1fr) 0.75fr 1fr .35fr;
+    }
+
+    .formacion,
+    .portfolio,
+    .idiomas,
+    .trans1, .trans2, .trans3 {
+        grid-column: 1/-1;
+    }
+
+    .trans1 {
+        grid-row: 1/2;
+        background-image: url(../images/element5-digital-OyCl7Y4y0Bk-unsplash.jpg);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: right bottom;
+        background-size: cover;
+    }
+
+    .formacion {
+        grid-row: 2/3;
+        
+    }
+
+    .trans2 {
+        grid-row: 3/4;
+        background-image: url(../images/joshua-aragon-BMnhuwFYr7w-unsplash.jpg);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: cover;
+    }
+
+    .portfolio {
+        grid-row: 4/5;
+    }
+
+    .trans3 {
+        grid-row: 5/6;
+        background-image: url(../images/brett-jordan-POMpXtcVYHo-unsplash.jpg);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: cover;
+    }
+
+    .idiomas {
+        grid-row: 6/7;
+    }
+
+    .formacion h2,
+    .portfolio h2,
+    .idiomas h2 {
+        font-size: 3em;
+        width: 100%;
+        text-align: center;
+    }  
+
+    .formacion .card:nth-child(2) {
+        height: 48vh;
+    }
+
+    .formacion .card:nth-child(3) {
+        height: 45vh;
+    }
+
+    .formacion .card:nth-child(4) {
+        height: 47vh;
+    }
+
+    .card h2 {
+        font-size: 2.1em;
+        text-align: left;
+    }
+
+    .card h3 {
+        font-size: 2em;
+    }
+    
+    .idiomas {
+        justify-self: stretch;
+        align-self: flex-end;
+    }
+
+    .footer {
+        grid-row: 4/5;
+        grid-column: 1/-1;
+        height: 25vh;
+    }
+    .left,
+    .right {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    .left,
+    .right {
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .right,
+    .left a{
+        padding: 2%;
+        font-size: 1.6rem;
+    }
+
+    .center {
+        color: #f7f7f7;
+        font-size: 1.4em;
+        text-align: center;
+    }
+
+}
+
+/* ********************** */
+/* ********************** */
+/* ********************** */
+
+@media (min-width: 820px) {
+    .formacion .card:nth-child(2) {
+        height: 50vh;
+    }
+
+    .formacion .card:nth-child(3) {
+        height: 47vh;
+    }
+
+    .formacion .card:nth-child(4) {
+        height: 47vh;
+    }
+}
+
+/* ********************** */
+/* ********************** */
+/* ********************** */
+
+@media (min-width: 924px){
+
+    .content {
+        margin: 0;
+        grid-row: 3/4;
+        grid-column: 1/-1;
+        display: grid;
+        grid-template-rows: repeat(3, 1fr) 0.75fr 1fr .75fr;
+    }
+
+    .cita {
+        width: 45%;
+    }
+
+    .formacion,
+    .portfolio {
+        flex-direction: row;
+        justify-content: center;
+        padding-bottom: 5%;
+    }
+
+    .card {
+        margin: 0;
+        margin-right: 1%;
+        margin-left: 1%; ;
+        justify-content: start;
+        align-content: start;
+    }
+
+    .formacion .card,
+    .formacion .card:nth-child(3) {
+        width: 30vw;
+        height: 58vh;
+    }
+
+    .formacion .card:nth-child(2),
+    .formacion .card:nth-child(4) {
+        height: 58vh;
+    }
+
+    .formacion .card:nth-child(3) a{
+        margin-top: 8.67%;
+
+    }
+
+    .portfolio .card {
+        width: 45vw !important;
+        height: 48vh !important;
+    }
+
+    .idiomas {
+        align-self: center;
+    }
+
+    .idiomas .card {
+        height: 30vh;
+    }
+}
+
+/* ********************** */
+/* ********************** */
+/* ********************** */
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1200px;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    nav {
+        width: 1200px;
+    }
+
+    .header {
+        max-width: 1200px;
+    }
+
+    .cita {
+        padding-top: 17%;
+        padding-left: 3%;
+        width: 560px;
+    }
+
+    .formacion {
+        height: 600px
+    }
+
+    .formacion .card,
+    .formacion .card:nth-child(3) {
+        width: 350px;
+        height: 325px;
+    }
+
+    .formacion .card:nth-child(2),
+    .formacion .card:nth-child(4) {
+        height: 325px;
+    }
+
+    .formacion .card:nth-child(3) a{
+        margin-top: 41px;
+
+    }
+    
+    .formacion .card:nth-child(4) a{
+        margin-top: 20px;
+
+    }
+
+    .portfolio {
+        height: 500px;
+    }
+
+    .portfolio .card {
+        width: 500px !important;
+        height: 250px !important;
+    }
+
+    .portfolio .card:nth-child(2) a {
+        margin-top: 25px;
+    }
+
+    .idiomas {
+        height: 350px;
+    }
+
+    .idiomas .card {
+        height: 200px;
+        width: 250px;
+        align-content: center;
+    }
+    
+}
