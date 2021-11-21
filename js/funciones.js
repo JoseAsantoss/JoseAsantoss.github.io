@@ -5,7 +5,7 @@ window.onload = () => {
     const ham = document.querySelector('.ham');
     const enlaces = document.querySelector('.enlaceMenu');
     const barras = document.querySelectorAll('.ham span');
-    let activo;
+    let control = false;
 
     /**************************************************/
     /**************************************************/
@@ -15,20 +15,46 @@ window.onload = () => {
     oculto y se muestre el button con la clase .ham */
     if(navegador > 768) {
         enlaces.classList.add('activado', true);
-        activo = true;
-    }else {
-        activo = false;
+        control = true;
+    } else {
+        ham.addEventListener('click', () => {
+            enlaces.classList.toggle('activado');
+            barras.forEach(child => {
+                child.classList.toggle('animado');
+            })
+           mostrar = true;
+        })
+
+        enlaces.addEventListener('click', () => {
+            enlaces.classList.toggle('activado');
+            barras.forEach(child => {
+                child.classList.toggle('animado'); 
+            })  
+        })
+
+
     }
 
     window.addEventListener('resize', () => {
         let nuevoTam = window.innerWidth;
         
-        if(nuevoTam < 769) {
+        if(control && nuevoTam < 769 ) {
             enlaces.classList.toggle('activado', false);
-            activo = false;
+            control = true
+
+            enlaces.addEventListener('click', () => {
+                enlaces.classList.toggle('activado');
+                barras.forEach(child => {
+                    child.classList.toggle('animado'); 
+                })  
+            })
+
         }else {
-            enlaces.classList.add('activado', true);
-            activo =true
+
+            if(nuevoTam > 768) {
+                enlaces.classList.add('activado', true);
+                control = false;
+            }
         }
     })
     /**************************************************/
@@ -36,32 +62,7 @@ window.onload = () => {
     /**************************************************/
     /**************************************************/
    
-        ham.addEventListener('click', () => {
-            enlaces.classList.toggle('activado');
-            activo = true
-            barras.forEach(child => {
-                child.classList.toggle('animado');
-            })
-        })
-
-        if(!activo) {
-            console.log(`Que cojones pasa con activo ${activo}`)
-            enlaces.addEventListener('click', () => {
-                enlaces.classList.toggle('activado');
-                barras.forEach(child => {
-                    child.classList.toggle('animado'); 
-                })
-            })
-        }
-        
-    
-
-    
-
-    
-
-
-
+       
 }
 
 //Función fecha que devuelve un string con el pie
