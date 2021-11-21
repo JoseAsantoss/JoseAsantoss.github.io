@@ -25,10 +25,10 @@ window.onload = () => {
         
         if(nuevoTam < 769) {
             enlaces.classList.toggle('activado', false);
-            activo = true;
+            activo = false;
         }else {
             enlaces.classList.add('activado', true);
-            activo =false
+            activo =true
         }
     })
     /**************************************************/
