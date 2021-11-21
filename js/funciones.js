@@ -54,6 +54,13 @@ window.onload = () => {
             if(nuevoTam > 768) {
                 enlaces.classList.add('activado', true);
                 control = false;
+            }else {
+                enlaces.addEventListener('click', () => {
+                    enlaces.classList.toggle('activado');
+                    barras.forEach(child => {
+                        child.classList.toggle('animado'); 
+                    })  
+                })
             }
         }
     })
