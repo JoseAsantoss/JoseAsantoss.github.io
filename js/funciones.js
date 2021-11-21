@@ -5,8 +5,7 @@ window.onload = () => {
     const ham = document.querySelector('.ham');
     const enlaces = document.querySelector('.enlaceMenu');
     const barras = document.querySelectorAll('.ham span');
-    let activo = false;
-    let control = false;
+    let activo;
 
     /**************************************************/
     /**************************************************/
@@ -15,30 +14,22 @@ window.onload = () => {
     .activado para que se vea el menu en lista o se quede
     oculto y se muestre el button con la clase .ham */
     if(navegador > 768) {
-        enlaces.classList.add('activado');
+        enlaces.classList.add('activado', true);
+        activo = true;
+    }else {
+        activo = false;
     }
 
     window.addEventListener('resize', () => {
         let nuevoTam = window.innerWidth;
         
-        if(nuevoTam < navegador && nuevoTam < 769) {
+        if(nuevoTam < 769) {
             enlaces.classList.toggle('activado', false);
-            console.log(`El tamaño del navegador es: ${nuevoTam}`) 
-            
             activo = true;
         }else {
-
-            if(nuevoTam < 769) {
-                console.log(`El tamaño del navegador es: ${nuevoTam}`) 
-            }
-
-            if(nuevoTam >= 769) {
-                enlaces.classList.add('activado', true);
-                console.log(`El tamaño del navegador es: ${nuevoTam}`)
-            }
+            enlaces.classList.add('activado', true);
+            activo =false
         }
-        
-            
     })
     /**************************************************/
     /**************************************************/
@@ -54,11 +45,11 @@ window.onload = () => {
         })
 
         if(!activo) {
+            console.log(`Que cojones pasa con activo ${activo}`)
             enlaces.addEventListener('click', () => {
                 enlaces.classList.toggle('activado');
                 barras.forEach(child => {
-                    child.classList.toggle('animado');
-                    
+                    child.classList.toggle('animado'); 
                 })
             })
         }
