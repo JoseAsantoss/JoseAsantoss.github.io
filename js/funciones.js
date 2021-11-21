@@ -13,15 +13,16 @@ window.onload = () => {
     .activado para que se vea el menu en lista o se quede
     oculto y se muestre el button con la clase .ham */
     if(ventana < 769) {
+        enlaces.classList.remove('activado');
         ham.addEventListener('click', () => {
-            enlaces.classList.toggle('activado');
+            enlaces.classList.add('activado');
             barras.forEach(child => {
                 child.classList.toggle('animado');
             })
         })
     
         enlaces.addEventListener('click', () => {
-            enlaces.classList.toggle('activado');
+            enlaces.classList.remove('activado');
             barras.forEach(child => {
                 child.classList.toggle('animado');
                 
