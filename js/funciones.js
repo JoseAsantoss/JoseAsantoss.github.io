@@ -43,8 +43,6 @@ window.onload = () => {
                 barras.forEach(child => {
                     child.classList.toggle('animado');
                 })
-
-                console.log('vuelvo a entrar aquí')
             })
         
             enlaces.addEventListener('click', () => {
@@ -57,6 +55,7 @@ window.onload = () => {
             })
         }else {
             enlaces.classList.add('activado')
+            console.log('estoy aquí')
         }
 
     })
