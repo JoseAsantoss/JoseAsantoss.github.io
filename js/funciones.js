@@ -28,7 +28,7 @@ window.onload = () => {
             })
         })
     }else {
-        enlaces.classList.toggle('activado', true)
+        enlaces.classList.add('activado')
     }
 
     window.addEventListener('resize', () => {
