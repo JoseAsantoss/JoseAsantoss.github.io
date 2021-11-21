@@ -40,8 +40,10 @@ window.onload = () => {
         }
 
         if(nVenta > 768) {
-            enlaces.removeEventListener('click', false);
             enlaces.classList.add('activado')
+            enlaces.addEventListener('click', () => {
+                enlaces.classList.add('activado')
+            })
         }
 
     })
