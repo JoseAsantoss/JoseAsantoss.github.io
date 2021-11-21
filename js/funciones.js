@@ -56,8 +56,6 @@ window.onload = () => {
         }
 
     })
-
-
     
 }
 //Función fecha que devuelve un string con el pie
