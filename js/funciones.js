@@ -14,23 +14,6 @@ window.onload = () => {
     oculto y se muestre el button con la clase .ham */
     if(ventana > 768) {
        enlaces.classList.add('activado')
-    }else {
-        enlaces.classList.remove('activado')
-
-        ham.addEventListener('click', () => {
-            enlaces.classList.add('activado');
-            barras.forEach(child => {
-                child.classList.toggle('animado');
-            })
-        });
-    
-        enlaces.addEventListener('click', () => {
-            enlaces.classList.remove('activado');
-            barras.forEach(child => {
-                child.classList.toggle('animado');
-                
-            })
-        });
     }
 
     window.addEventListener('resize', () => {
@@ -57,7 +40,7 @@ window.onload = () => {
             })
         }
 
-        if(nVenta > 768 || navegador > 768) {
+        if(nVenta > 768 || nNavegador > 768) {
             enlaces.classList.add('activado')
             enlaces.addEventListener('click', () => {
                 enlaces.classList.add('activado');
