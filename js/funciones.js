@@ -35,9 +35,10 @@ window.onload = () => {
 
     window.addEventListener('resize', () => {
         nVenta = screen.availWidth;
+        navegador = window.innerWidth
         console.log(`Ventana es ${ventana} y nVentana es ${nVenta}`)
 
-        if(nVenta < 769) {
+        if(nVenta < 769 || navegador < 769) {
             enlaces.classList.remove('activado')
             ham.addEventListener('click', () => {
                 enlaces.classList.add('activado');
@@ -56,7 +57,7 @@ window.onload = () => {
             })
         }
 
-        if(nVenta > 768) {
+        if(nVenta > 768 || navegador > 768) {
             enlaces.classList.add('activado')
             enlaces.addEventListener('click', () => {
                 enlaces.classList.add('activado');
