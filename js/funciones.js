@@ -22,7 +22,7 @@ window.onload = () => {
             barras.forEach(child => {
                 child.classList.toggle('animado');
             })
-        })
+        });
     
         enlaces.addEventListener('click', () => {
             enlaces.classList.remove('activado');
@@ -30,6 +30,7 @@ window.onload = () => {
                 child.classList.toggle('animado');
                 
             })
+        });
     }
 
     window.addEventListener('resize', () => {
@@ -62,8 +63,7 @@ window.onload = () => {
             })
         }
 
-    })
-    
+    });   
 }
 //Función fecha que devuelve un string con el pie
 //de la página.
