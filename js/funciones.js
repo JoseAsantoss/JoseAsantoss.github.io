@@ -23,6 +23,7 @@ window.onload = () => {
 
         if(nVenta < 769 || nNavegador < 769) {
             enlaces.classList.remove('activado')
+            console.log('pasaba por aqui')
             ham.addEventListener('click', () => {
                 enlaces.classList.add('activado');
                 barras.forEach(child => {
