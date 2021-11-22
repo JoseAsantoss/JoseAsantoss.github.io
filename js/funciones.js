@@ -36,7 +36,7 @@ window.onload = () => {
     window.addEventListener('resize', () => {
         nVenta = screen.availWidth;
         navegador = window.innerWidth
-        console.log(`Ventana es ${ventana} y nVentana es ${nVenta}`)
+        console.log(`Ventana es ${ventana} y nVentana es ${nVenta} y el navegador es ${navegador}`)
 
         if(nVenta < 769 || navegador < 769) {
             enlaces.classList.remove('activado')
