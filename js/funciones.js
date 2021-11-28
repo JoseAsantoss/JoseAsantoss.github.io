@@ -95,7 +95,7 @@ function tamNav() {
 }
 
 
-const navegador = window.innerWidth;
+let navegador = window.innerWidth;
 const ventana = screen.availWidth;
 console.log(`El tamaño del navegador es: ${navegador}`)
 console.log(`El tamaño de la ventana es: ${ventana}`)
