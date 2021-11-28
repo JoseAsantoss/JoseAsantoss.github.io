@@ -194,6 +194,7 @@ las resoluciones de portail, pc o tv */
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
+    font-size: 0.9em;
 }
 
 .formacion h2,
@@ -213,10 +214,14 @@ las resoluciones de portail, pc o tv */
 .portfolio {
     grid-row: 2/3;
     align-self: flex-start;
+    margin-top: -35px;
 }
 
 .idiomas {
     grid-row: 3/4;
+    z-index: 2;
+    align-self: flex-start;
+    margin-top: -10px;
 }
 
 /* Css común para las tarjetas */
@@ -228,7 +233,7 @@ las resoluciones de portail, pc o tv */
     margin-bottom: 4em;
     margin-left: 1.5em;
     margin-right: 1.5em;
-    height: 45vh;
+    height: max-content;
     font-size: 1.1em;
     display: flex;
     flex-direction: row;
@@ -275,7 +280,7 @@ las resoluciones de portail, pc o tv */
     border: 2px solid #04082c;
     border-radius: 10px;
     box-shadow: 3px 3px 3px 1px #04082c;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 
 .card > a:hover{
@@ -283,21 +288,13 @@ las resoluciones de portail, pc o tv */
     background-color: #04082c;
 }
 
-/* Modificaciones de estilos para tarjetas de portfolio */
-.portfolio .card {
-    height: 54vh
-}
-
-.portfolio .card:nth-child(3) {
-    height: 56vh;
-}
-
 /* Modificaciones de estilos para tarjetas de idiomas */
 .idiomas .card {
-    height: 26vh;
-    width: 80%;
+    height: max-content;
+    width: 90%;
     justify-content: space-evenly;
     align-items: center;
+    margin-bottom: 2em;
 }
 
 .idiomas .card div{
@@ -400,6 +397,31 @@ las resoluciones de portail, pc o tv */
 /* ********************** */
 /* ********************** */
 
+@media (min-width: 357px) {
+    .idiomas {
+        margin-top: 5em;
+        flex-direction: row;
+        align-self: center;
+    }
+
+    .idiomas h2 {
+        width: 100%;
+        text-align: center;
+    }
+
+    .idiomas .card {
+        width: 40%;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: 0 auto;
+        margin-bottom: 2em;
+    }
+}
+ 
+/* ********************** */
+/* ********************** */
+/* ********************** */
+
 @media (min-width: 544px) {
     .formacion {
         margin-top: 1.25em;
@@ -411,26 +433,26 @@ las resoluciones de portail, pc o tv */
     }
 
     .formacion .card {
-        height: 38vh;
+        height: max-content;
         align-content: flex-start;
     }
 
-    .formacion .card:nth-child(2) {
-        height: 42vh;
+    .formacion .card a {
+        margin-bottom: 10px;
+    }
+
+    .portfolio {
+        margin-top: 20px;
     }
 
     .portfolio .card {
-        height: 42vh;
+        height: 45vh;
         align-content: flex-start;
     }
 
     .portfolio .card h2 {
         font-size: 1.8em;
         margin-bottom: .5em;
-    }
-
-    .portfolio .card:nth-child(3) {
-        height: 46vh;
     }
 
     .idiomas {

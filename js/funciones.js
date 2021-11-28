@@ -34,30 +34,30 @@ window.onload = () => {
             nVentana = screen.availWidth
             console.log(`El nuevo tamaño de nNavegador es ${nNavegador} y de nVentana es ${nVentana}`)
             flag = 1
-            if(nNavegador > navegador && navegador < 769) {
-                enlaces.classList.add('activado')
+            if((nNavegador >= navegador && navegador > 768) ||(nNavegador >= navegador && navegador < 769) ) {
                 control = true
-            }else if(nNavegador < navegador && navegador > 768) {
-                enlaces.classList.remove('activado')
+                enlaces.classList.toggle('activado', true);
+                console.log(`He entrado y activo "activado"`)
+            }else if((nNavegador <= navegador && navegador < 769)||(nNavegador >= navegador && navegador > 768)) {
+                enlaces.classList.toggle('activado', false);
                 control= false
+                console.log(`He entrado y desactivo "activado"`)
             }
         }else {
-            old = window.innerWidth
-            if(old != nNavegador) {
-                nVentana = screen.availWidth
-                console.log(`El valor de old es ${old} y de nVentana es ${nVentana}`)
+            nuevo = window.innerWidth
+            if(nuevo != nNavegador) {
+                console.log(`El valor de old es ${nuevo} y de nVentana es ${nVentana}`)
                 flag = -1
-                if(old > nNavegador && nNavegador < 769) {
-                    if(old > 768 && nVentana > 768) {
-                        enlaces.classList.add('activado')
-                        control = true
-                    }
-                }else if(old < nNavegador && nNavegador > 768){
-                    enlaces.classList.remove('activado')
+                if((nuevo >= nNavegador && nNavegador > 768)||(nuevo >= nNavegador && nNavegador < 769)) {
+                   control = true;
+                   enlaces.classList.toggle('activaddo', true);
+                }else if((nuevo <= nNavegador && nNavegador > 769)||(nuevo >= nNavegador && nNavegador > 768)){
+                    enlaces.classList.toggle('activado', false)
                     control = false
+                    console.log(`He entrado y desactivo "activado"`)
                 }
             }
-            
+            navegador = nuevo
         }
 
         
