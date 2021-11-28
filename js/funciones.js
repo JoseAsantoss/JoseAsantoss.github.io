@@ -28,8 +28,10 @@ window.onload = () => {
 
     let flag = -1
     window.onresize = () => {
-        let old;
+        let nuevo;
+        
         if(flag < 0) {
+            console.log(`El valor de navegador es: ${navegador}`)
             nNavegador = window.innerWidth
             nVentana = screen.availWidth
             console.log(`El nuevo tamaño de nNavegador es ${nNavegador} y de nVentana es ${nVentana}`)
@@ -37,27 +39,28 @@ window.onload = () => {
             if((nNavegador >= navegador && navegador > 768) ||(nNavegador >= navegador && navegador < 769) ) {
                 control = true
                 enlaces.classList.toggle('activado', true);
-                console.log(`He entrado y activo "activado"`)
-            }else if((nNavegador <= navegador && navegador < 769)||(nNavegador >= navegador && navegador > 768)) {
+                console.log(`He entrado a y activo "activado"`)
+            }else if((nNavegador <= navegador && navegador < 769)||(nNavegador <= navegador && navegador > 768)) {
                 enlaces.classList.toggle('activado', false);
                 control= false
-                console.log(`He entrado y desactivo "activado"`)
+                console.log(`He entrado a y desactivo "activado"`)
             }
         }else {
             nuevo = window.innerWidth
             if(nuevo != nNavegador) {
-                console.log(`El valor de old es ${nuevo} y de nVentana es ${nVentana}`)
+                console.log(`El valor de nuevo es ${nuevo} y de nVentana es ${nVentana}`)
                 flag = -1
                 if((nuevo >= nNavegador && nNavegador > 768)||(nuevo >= nNavegador && nNavegador < 769)) {
                    control = true;
-                   enlaces.classList.toggle('activaddo', true);
-                }else if((nuevo <= nNavegador && nNavegador > 769)||(nuevo >= nNavegador && nNavegador > 768)){
+                   enlaces.classList.toggle('activado', true);
+                   console.log(`He entrado b y activo "activado"`)
+                }else if((nuevo <= nNavegador && nNavegador > 769)||(nuevo <= nNavegador && nNavegador > 768)){
                     enlaces.classList.toggle('activado', false)
                     control = false
-                    console.log(`He entrado y desactivo "activado"`)
+                    console.log(`He entrado b y desactivo "activado"`)
                 }
             }
-            navegador = nuevo
+            navegador = nuevo;
         }
 
         
@@ -95,7 +98,7 @@ function tamNav() {
 }
 
 
-let navegador = window.innerWidth;
+var navegador = window.innerWidth;
 const ventana = screen.availWidth;
 console.log(`El tamaño del navegador es: ${navegador}`)
 console.log(`El tamaño de la ventana es: ${ventana}`)
