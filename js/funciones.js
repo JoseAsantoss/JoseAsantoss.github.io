@@ -67,7 +67,7 @@ window.onload = () => {
     }
 
     ham.addEventListener('click', () => {
-        enlaces.classList.add('activado');
+        enlaces.classList.toggle('activado');
         barras.forEach(child => {
             child.classList.toggle('animado');
         })
@@ -75,7 +75,7 @@ window.onload = () => {
 
     enlaces.addEventListener('click', () => {
         if(!control) {
-            enlaces.classList.remove('activado');
+            enlaces.classList.toggle('activado');
             barras.forEach(child => {
                 child.classList.toggle('animado');
                 
